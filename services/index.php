@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <?php 
         // Include the header component
-        include 'includes/header.php';
+        include '../includes/header.php';
     ?>
     <dialog id="sampleDialog">
         <h2>Welcome to Our Website</h2>
@@ -20,7 +20,7 @@
  -->
     <?php
         // Include the footer component
-        include 'includes/footer.php';
+        include '../includes/footer.php';
     ?>
 </body>
 </html>
