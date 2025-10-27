@@ -28,9 +28,10 @@
         <?php
             input("text", "name", "Name", "user", "", "Your full name", true);
             input("email", "email", "Email", "envelope", "", "Your email address", true);
+            input("text", "subject", "Subject", "tag", "", "Subject of your message", true);
             textarea("message", "Message", "comment", "", "Your message", true);
         ?>
-        <div class="form-group">
+        <div class="form-actions-group">
             <button type="reset"><i class="fa-solid fa-eraser"></i> Reset</button>
             <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
         </div>

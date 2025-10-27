@@ -1,32 +1,42 @@
 :root{
-
     --border-radius: 8px;
-    --includes-color: #e0e0e0;
+    --includes-color: #b7b0f9;
     --primary-color: #6200ea;
     --secondary-color: #03dac6;
     --tertiary-color: #018786;
-    --background-color: #f8f9fa;
+    --background-color: #d4dae0;
     --text-color: #212529;
-
+    --card-color:#f4f3f6;
 }
+
 body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    justify-content: space-between;
+    justify-content: flex-start; /* footer sera en bas grâce à margin-top:auto */
     align-items: center;
     position: relative;
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+.card:hover{
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 
 }
 header{
     width: 100%;
     background-color: var(--includes-color);
     padding: 10px 0;
+    box-sizing: border-box;
 }
+
 .header-container {
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -35,55 +45,223 @@ header{
     box-sizing: border-box;
     background-color: var(--includes-color);
 }
+
 nav{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 nav ul{
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin: 0;
+    padding: 0;
 }
+
 nav ul li {
     margin: 0 10px;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
+    color: var(--text-color);
+    position: relative; /* nécessaire pour positionner le ::after par rapport au lien */
 }
-nav ul li a:hover{
-    text-decoration: underline;
+
+nav ul li a::after {
+    content: ""; /* obligatoire */
+    position: absolute;
+    width: 0; /* invisible par défaut */
+    height: 2px; /* épaisseur du trait */
+    bottom: 0; /* placé sous le texte */
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease; /* animation de la largeur */
 }
+
+nav ul li a:hover::after {
+    width: 100%; /* le trait s’étend sur tout le texte au survol */
+}
+
+
 #burger{
     display: none;
     font-size: 24px;
     cursor: pointer;
 }
 main{
-    align-items: center;
-    text-align: center;
+    width: 90%;
 }
+.about-container {
+    display: flex;
+    flex-wrap: wrap; /* ✅ les cartes passent à la ligne automatiquement */
+    justify-content: center; /* ✅ centrage horizontal */
+    align-items: stretch; /* ✅ même hauteur si possible */
+    gap: 30px; /* ✅ espace régulier entre les cartes */
+    width: 100%;
+    max-width: 1200px; /* ✅ limite pour une mise en page équilibrée */
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* blockquote {
+    font-style: italic;
+    border-left: 4px solid #6200ea;
+    padding-left: 16px;
+    color: #333;
+    margin: 20px 0;
+}
+blockquote p {
+    margin: 10px 0;
+} */
+.quote-box {
+    position: relative;
+    margin: 10%;
+    width: 65.5%;
+    background: var(--card-color);
+    border-left: 4px solid #03dac6;
+    padding: 20px 30px;
+    font-style: italic;
+    color: #222;
+    border-radius: 8px;
+    text-align: justify;
+}
+
+.quote-box::before {
+    content: "“";
+    font-size: 50px;
+    color: #03dac6;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+.quote-box::after {
+    content: "”";
+    font-size: 50px;
+    color: #03dac6;
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+}
+
+/* ✅ Design amélioré pour les cartes */
+.member-card {
+    flex: 1 1 280px; /* ✅ s'adapte et wrap selon la taille */
+    max-width: 360px;
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 25px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ Image du membre */
+.member-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 15px;
+}
+/* ✅ Nom */
+.member-card .member-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+/* ✅ Titre du membre */
+.member-card .member-title {
+    font-size: 1em;
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+}
+
 form{
     display: flex;
     flex-direction: column; 
-}
-fieldset{
-    padding: 5px;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
     border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+fieldset{
+    position: relative;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+}
+
 legend{
     font-weight: bold;
     padding: 0 10px;
 }
+
+.form-group{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.form-group label{
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    padding: 8px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.form-actions-group{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form-actions-group button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.form-actions-group button:hover{
+    background-color: var(--secondary-color);
+}
+
+
 footer{
     width: 100%;
     background-color: var(--includes-color);
     text-align: center;
     padding: 10px 0;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto; /* pour rester en bas même si body n'est pas plein */
 }
+
+/* Responsive */
 @media screen and (max-width: 650px){
     nav{
         display:none;
@@ -99,6 +277,5 @@ footer{
         border-radius: var(--border-radius);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s;
-        
     }
 }
