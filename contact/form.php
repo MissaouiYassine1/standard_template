@@ -24,7 +24,7 @@
 ?>
 <form action="" method="post">
     <fieldset>
-        <legend><i class="fa-solid fa-envelope"></i> Contact us</legend>
+        <legend><i class="fa-solid fa-envelope"></i> Send us a message</legend>
         <?php
             input("text", "name", "Name", "user", "", "Your full name", true);
             input("email", "email", "Email", "envelope", "", "Your email address", true);

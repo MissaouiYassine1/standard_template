@@ -34,7 +34,9 @@ header{
     padding: 10px 0;
     box-sizing: border-box;
 }
-
+#logo{
+    height: calc(10vh);
+}
 .header-container {
     display: flex;
     flex-direction: row;
@@ -164,6 +166,7 @@ blockquote p {
 
 /* ✅ Image du membre */
 .member-card img {
+    cursor: pointer;
     width: 140px;
     height: 140px;
     object-fit: cover;
@@ -173,6 +176,7 @@ blockquote p {
 }
 /* ✅ Nom */
 .member-card .member-name {
+    cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
     color: var(--primary-color);
@@ -181,12 +185,17 @@ blockquote p {
 
 /* ✅ Titre du membre */
 .member-card .member-title {
+    cursor: pointer;
     font-size: 1em;
     color: var(--tertiary-color);
     margin-bottom: 10px;
 }
-
-form{
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+form,.contact-info{
     display: flex;
     flex-direction: column; 
     width: 90%;
@@ -254,13 +263,33 @@ legend{
 
 
 footer{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: var(--includes-color);
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 200px;
     margin-top: auto; /* pour rester en bas même si body n'est pas plein */
-}
 
+}
+footer div{
+    margin: 0 25px;
+    align-items: center;
+    align-content: center;
+}
+#footer-infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+/* #footer-infos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+} */
 /* Responsive */
 @media screen and (max-width: 650px){
     nav{
